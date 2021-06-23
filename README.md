@@ -10,23 +10,23 @@ This repo demonstrates a monorepo setup with multiple pulumi projects, incl. dif
 
 ## Getting started
 
+In the root of the project, run:
+
 ```sh
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-To run for stack1 (a python package):
-
-```sh
-cd src/infra/stack1
-pulumi preview
-```
+To preview project1, from the root of the project run `pulumi -C src/infra/project1 preview`.
 
 Select the `dev` stack and observe the error:
 
 ```
-ModuleNotFoundError: No module named 'infra'
+...
+File "./__main__.py", line 6, in <module>
+        from infra.lib import example
+    ModuleNotFoundError: No module named 'infra'
 ```
 
-The same thing will occur for stack2, which is not a package and doesn't specify a venv in Pulumi.yaml.
+Observe the same for project2 (which differs in that it's not a python package and it doesn't specify a venv in Pulumi.yaml).
