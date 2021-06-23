@@ -1,0 +1,9 @@
+{
+    "python.pythonPath": "${workspaceFolder}/venv/bin/python3",
+    "python.analysis.extraPaths": ["infra"],
+    "files.exclude": {
+        "**/include/": true,
+        "**/__pycache__/": true,
+    },
+    "git.rebaseWhenSync": true
+}
