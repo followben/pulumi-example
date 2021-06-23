@@ -19,7 +19,7 @@ pip install -r requirements.txt
 To run for stack1 (a python package):
 
 ```sh
-cd infra/stack1
+cd src/infra/stack1
 pulumi preview
 ```
 
