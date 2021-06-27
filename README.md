@@ -18,6 +18,8 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
+## Demonstrating [the import issue](https://github.com/pulumi/pulumi/issues/7360)
+
 To preview project1, from the root of the project run `pulumi -C src/infra/project1 preview`.
 
 Select the `dev` stack and observe the error:
@@ -29,4 +31,9 @@ File "./__main__.py", line 6, in <module>
     ModuleNotFoundError: No module named 'infra'
 ```
 
-Observe the same for project2 (which differs in that it's not a python package and it doesn't specify a venv in Pulumi.yaml).
+### Workaround
+
+
+Preview project2 from the root of the project by running `pulumi -C src/infra/project2 preview`.
+
+This works thanks to a hack at the top of `__main__.py` which adds the src directory to the syspath.
